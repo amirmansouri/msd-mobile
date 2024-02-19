@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:msd/Components/Home/appBar.dart';
 import 'package:msd/Components/Home/browseProduct.dart';
 import 'package:msd/Screens/NavBar/Home/inbox.dart';
- import 'package:msd/Components/Home/widgetNewProduct.dart';
- import 'package:msd/Screens/ViewProduct/viewProduct.dart';
+import 'package:msd/Components/Home/widgetNewProduct.dart';
+import 'package:msd/Screens/ViewProduct/viewProduct.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,6 +12,7 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
 }
+
 int stock = 1;
 List<Color> colorContainer = [
   Color(0xFF34A853),
@@ -38,6 +39,7 @@ getColor() {
     print("case 3");
   }
 }
+
 class _HomeState extends State<Home> {
   @override
   void initState() {
@@ -51,6 +53,7 @@ class _HomeState extends State<Home> {
       getColor();
     });
   }
+
   Widget build(BuildContext context) {
     updateStock(500);
     return Scaffold(
@@ -67,48 +70,48 @@ class _HomeState extends State<Home> {
       //     );
       //   },
       // ),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: newProductPub(
-                descProduct: 'ColorVu Series HDTVI \n Bullet Camera',
-                textButtonShowProduct: 'View product',
-                imageProduct: 'assets/images/cam.png',
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: newProductPub(
+              descProduct: 'ColorVu Series HDTVI \n Bullet Camera',
+              textButtonShowProduct: 'View product',
+              imageProduct: 'assets/images/cam.png',
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text(
+                "Browse products",
+                style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontSize: 16,
+                  color: Color(0xFF4E4B66),
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  "Browse products",
-                  style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 16,
-                    color: Color(0xFF4E4B66),
-                  ),
+              const SizedBox(width: 200),
+              const Text(
+                "View all",
+                style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontSize: 12,
+                  color: Color(0xFF6E7191),
                 ),
-                const SizedBox(width: 200),
-                const Text(
-                  "View all",
-                  style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 12,
-                    color: Color(0xFF6E7191),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: SizedBox(
               width: double.infinity,
               height: 150,
               child: ListView.builder(
@@ -125,118 +128,122 @@ class _HomeState extends State<Home> {
                         context,
                         MaterialPageRoute(builder: (context) => ViewProduct()),
                       );
-                    }, colorContainer1: container1, colorContainer2:container2, colorContainer3:container3,
+                    },
+                    colorContainer1: container1,
+                    colorContainer2: container2,
+                    colorContainer3: container3,
                   );
                 },
               ),
             ),
-            const SizedBox(
-              width: 20,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  "Browse by category",
-                  style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 16,
-                    color: Color(0xFF4E4B66),
-                  ),
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text(
+                "Browse by category",
+                style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontSize: 16,
+                  color: Color(0xFF4E4B66),
                 ),
-                const SizedBox(width: 170),
-                const Text(
-                  "View all",
-                  style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 12,
-                    color: Color(0xFF6E7191),
-                  ),
+              ),
+              const SizedBox(width: 170),
+              const Text(
+                "View all",
+                style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontSize: 12,
+                  color: Color(0xFF6E7191),
                 ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Column(
-                    children: [
-                        SvgPicture.asset('assets/icon/ctv.svg', width: 50),
-                      const Text(
-                        "CCTV IP",
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontFamily: 'Poppins',
-                          color:Color(0xFFA0A3BD),
-                        ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    SvgPicture.asset('assets/icon/ctv.svg', width: 50),
+                    const Text(
+                      "CCTV IP",
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontFamily: 'Poppins',
+                        color: Color(0xFFA0A3BD),
                       ),
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                  ),
+                    ),
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                 ),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                        SvgPicture.asset('assets/icon/ctvAnalogique.svg', width: 50),
-                      const Text(
-                        "CCTV Analogique",
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontFamily: 'Poppins',
-                          color: Color(0xFFA0A3BD),
-                        ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset('assets/icon/ctvAnalogique.svg',
+                        width: 50),
+                    const Text(
+                      "CCTV Analogique",
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontFamily: 'Poppins',
+                        color: Color(0xFFA0A3BD),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                        SvgPicture.asset('assets/icon/video.svg', width: 50),
-                      const Text(
-                        "Video analysis",
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontFamily: 'Poppins',
-                          color: Color(0xFFA0A3BD),
-                        ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset('assets/icon/video.svg', width: 50),
+                    const Text(
+                      "Video analysis",
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontFamily: 'Poppins',
+                        color: Color(0xFFA0A3BD),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      SvgPicture.asset('assets/icon/smartHome.svg', width: 50),
-                      const Text(
-                        "Smart Home",
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontFamily: 'Poppins',
-                          color: Color(0xFFA0A3BD),
-                        ),
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    SvgPicture.asset('assets/icon/smartHome.svg', width: 50),
+                    const Text(
+                      "Smart Home",
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontFamily: 'Poppins',
+                        color: Color(0xFFA0A3BD),
                       ),
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                  ),
+                    ),
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
