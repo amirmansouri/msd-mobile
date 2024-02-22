@@ -4,22 +4,20 @@ Widget browseProduct(
     {required String image,
     required String idCamera,
     required String shortDescriptionCamera,
-      required Color colorContainer1,
-      required Color colorContainer2,
-      required Color colorContainer3,
+    required Color colorContainer1,
+    required Color colorContainer2,
+    required Color colorContainer3,
     required Function() onTap}) {
   return InkWell(
     onTap: onTap,
     child: SizedBox(
-      height: 152,
+      height: 200,
       width: 110,
       child: Column(
         children: [
-          SizedBox(
-              width: 73,
-              height: 75,
-              child: Image.asset(image)
-          ),
+          Expanded(
+              child:
+                  SizedBox(width: 75, height: 75, child: Image.asset(image))),
           Padding(
             padding:
                 const EdgeInsets.only(bottom: 4, top: 7, right: 16, left: 16),
@@ -36,7 +34,6 @@ Widget browseProduct(
                       borderRadius: BorderRadius.circular(4),
                       color: colorContainer1,
                     ),
-
                   ),
                   Container(
                     width: 16,
@@ -45,7 +42,6 @@ Widget browseProduct(
                       borderRadius: BorderRadius.circular(4),
                       color: colorContainer2,
                     ),
-
                   ),
                   Container(
                     width: 16,
@@ -54,7 +50,6 @@ Widget browseProduct(
                       borderRadius: BorderRadius.circular(4),
                       color: colorContainer3,
                     ),
-
                   ),
                 ],
               ),

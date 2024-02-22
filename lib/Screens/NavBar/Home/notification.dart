@@ -29,19 +29,23 @@ class _NotificationMsdState extends State<NotificationMsd> {
         ),
         title: Center(
             child: Text(
-              'Notifications',
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF4E4B66),
-                  fontSize: 20),
-            )),
+          'Notifications',
+          style: TextStyle(
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF4E4B66),
+              fontSize: 20),
+        )),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-                onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder:  (context) => Inbox(),));
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Inbox(),
+                      ));
                 },
                 child: SvgPicture.asset('assets/icon/msg.svg')),
           ),
@@ -52,34 +56,38 @@ class _NotificationMsdState extends State<NotificationMsd> {
           const Padding(
             padding: EdgeInsets.only(right: 20, left: 20, top: 20, bottom: 20),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'New',
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 14,
-                      color: Color(0xFF6E7191),
-                      fontWeight: FontWeight.w500),
+                Flexible(
+                  child: Text(
+                    'New',
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 14,
+                        color: Color(0xFF6E7191),
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
-                Spacer(),
-                Text(
-                  'Clear all',
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 12,
-                      color: Color(0xFFED2E7E),
-                      fontWeight: FontWeight.w400),
+                Flexible(
+                  child: Text(
+                    'Clear all',
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12,
+                        color: Color(0xFFED2E7E),
+                        fontWeight: FontWeight.w400),
+                  ),
                 )
               ],
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(child: SvgPicture.asset('assets/icon/notif2.svg')),
-               Spacer(),
+                SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,13 +112,12 @@ class _NotificationMsdState extends State<NotificationMsd> {
                 ),
                 Spacer(),
                 Container(
-                  height:30 ,
+                  height: 30,
                   width: 113,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(color: Color(0xFFD9DBE9)),
-
                   ),
                   child: Center(
                     child: Text(
@@ -131,7 +138,7 @@ class _NotificationMsdState extends State<NotificationMsd> {
             child: Row(
               children: [
                 SizedBox(child: SvgPicture.asset('assets/icon/notifprod.svg')),
-                Spacer(),
+                SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,13 +163,12 @@ class _NotificationMsdState extends State<NotificationMsd> {
                 ),
                 Spacer(),
                 Container(
-                  height:30 ,
+                  height: 30,
                   width: 113,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(color: Color(0xFFD9DBE9)),
-
                   ),
                   child: Center(
                     child: Text(
@@ -178,7 +184,6 @@ class _NotificationMsdState extends State<NotificationMsd> {
               ],
             ),
           ),
-
           const Padding(
             padding: EdgeInsets.only(right: 20, left: 20, top: 20, bottom: 20),
             child: Row(
@@ -191,16 +196,16 @@ class _NotificationMsdState extends State<NotificationMsd> {
                       color: Color(0xFF6E7191),
                       fontWeight: FontWeight.w500),
                 ),
-
               ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(child: SvgPicture.asset('assets/icon/notif2.svg')),
-                Spacer(),
+                SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -225,13 +230,12 @@ class _NotificationMsdState extends State<NotificationMsd> {
                 ),
                 Spacer(),
                 Container(
-                  height:30 ,
+                  height: 30,
                   width: 113,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(color: Color(0xFFD9DBE9)),
-
                   ),
                   child: Center(
                     child: Text(
@@ -252,7 +256,7 @@ class _NotificationMsdState extends State<NotificationMsd> {
             child: Row(
               children: [
                 SizedBox(child: SvgPicture.asset('assets/icon/notif2.svg')),
-                Spacer(),
+                SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -277,13 +281,12 @@ class _NotificationMsdState extends State<NotificationMsd> {
                 ),
                 Spacer(),
                 Container(
-                  height:30 ,
+                  height: 30,
                   width: 113,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(color: Color(0xFFD9DBE9)),
-
                   ),
                   child: Center(
                     child: Text(
@@ -299,7 +302,6 @@ class _NotificationMsdState extends State<NotificationMsd> {
               ],
             ),
           ),
-
         ],
       ),
     );

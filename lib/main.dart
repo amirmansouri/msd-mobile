@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-
-  import 'Screens/NavBar/navBarClass.dart';
+import 'Screens/NavBar/navBarClass.dart';
 import 'Screens/OnBoarding/splashScreen.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +13,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MSD',
@@ -37,13 +34,11 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-       // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-
       ),
-    //  home:SplashScreen(),
-      home:NavBar() ,
-
+      //  home: SplashScreen(),
+      home: NavBar(),
     );
   }
 }

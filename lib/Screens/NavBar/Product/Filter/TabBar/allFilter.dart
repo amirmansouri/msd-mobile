@@ -19,18 +19,10 @@ class _AllFilterState extends State<AllFilter> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(25),
-            child: Text('Intrusion',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFFA0A3BD),
-                    fontFamily: 'Poppins')),
-          ),
+    
           Padding(
             padding: const EdgeInsets.only(left: 10, bottom: 10),
-            child: Text("Range",
+            child: Text("Gamme de produits",
                 style: TextStyle(
                     letterSpacing: 2,
                     fontSize: 18,

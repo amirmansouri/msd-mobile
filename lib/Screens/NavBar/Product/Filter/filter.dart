@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../product.dart';
 import '../tabBar/allProduct.dart';
 import '../tabBar/cctv.dart';
 import '../tabBar/smartHome.dart';
@@ -13,19 +14,22 @@ class Filters extends StatefulWidget {
   State<Filters> createState() => _FiltersState();
 }
 
-class _FiltersState extends State<Filters> with SingleTickerProviderStateMixin{
+class _FiltersState extends State<Filters> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final List<String> tabLabels = [
     'All',
     'CCTV Analogique',
     'Smart Home',
   ];
+  List title = ["Tous les", "CCTV Analogique", "Smart Home"];
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: tabLabels.length, vsync: this);
   }
+
+  int selectedIndex = 0;
 
   @override
   void dispose() {
@@ -52,7 +56,7 @@ class _FiltersState extends State<Filters> with SingleTickerProviderStateMixin{
         ),
         title: Center(
             child: Text(
-          'Filters',
+          'filtres',
           style: TextStyle(
               fontFamily: 'Poppins',
               fontWeight: FontWeight.bold,
@@ -67,79 +71,130 @@ class _FiltersState extends State<Filters> with SingleTickerProviderStateMixin{
         ],
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Text('Product categories'),
+            child: Text('Catégories de produits',
+                style: TextStyle(
+                    letterSpacing: 2,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFFA0A3BD),
+                    fontFamily: 'Poppins')),
           ),
-          TabBar(
-
-            controller: _tabController,
-            tabs: tabLabels.map((label) {
-              final index = tabLabels.indexOf(label);
-              return Tab(
-                child: Container(
-                  width: tabLabels[1] == 'All' ? 80 : 120,
-                  child: Stack(
-                    children: [
-                      if (index == _tabController.index)
-                        Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(39),
-                              color: Colors.yellow,
-                            ),
-                            padding: EdgeInsets.symmetric(horizontal: 8),
-                            child: Center(
-                              child: Text(
-                                label,
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            height: 30,
-                          ),
-                        ),
-                      if (index != _tabController.index)
-                        Center(
-                          child: Text(
-                            label,
-                            style: TextStyle(
-                              color: Color(0xFFA0A3BD),
-                              fontFamily: 'Poppins',
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-              );
-            }).toList(),
-            onTap: (index) {
-              // Handle tab selection
-              setState(() {
-                print(index);
-                _tabController.index = index;
-              });
-            },
-          ),
-          Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                // Replace with your page widgets for each tab
-               AllFilter(),
-                CcTv(),
-                SmartHome(),
-              ],
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Wrap(
+              alignment: WrapAlignment.start,
+              spacing: 10, // Set the spacing between items
+              runSpacing:
+                  10, // Set the run spacing (spacing between lines if wrapping occurs)
+              children: List.generate(3, (index) {
+                return buildCategoryContainer(
+                  title[index],
+                  index == selectedIndex ? Colors.yellow : Color(0xffFFFDF0),
+                  index == selectedIndex
+                      ? Color(0xFF222C60)
+                      : Color(0xFFA0A3BD),
+                  index == selectedIndex?   FontWeight.bold:FontWeight.normal,
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                );
+              }),
             ),
           ),
+          //               Center(
+          //                 child: Container(
+          //                   decoration: BoxDecoration(
+          //                     borderRadius: BorderRadius.circular(39),
+          //                     color: Colors.yellow,
+          //                   ),
+          //                   padding: EdgeInsets.symmetric(horizontal: 8),
+          //                   child: Center(
+          //                     child: Text(
+          //                       label,
+          //                       style: TextStyle(
+          //                         color: Colors.black,
+          //                         fontFamily: 'Poppins',
+          //                         fontSize: 10,
+          //                         fontWeight: FontWeight.bold,
+          //                       ),
+          //                     ),
+          //                   ),
+          //                   height: 30,
+          //                 ),
+          //               ),
+          // TabBar(
+
+          //   controller: _tabController,
+          //   tabs: tabLabels.map((label) {
+          //     final index = tabLabels.indexOf(label);
+          //     return Tab(
+          //       child: Container(
+          //         width: tabLabels[1] == 'All' ? 80 : 120,
+          //         child: Stack(
+          //           children: [
+          //             if (index == _tabController.index)
+          //               Center(
+          //                 child: Container(
+          //                   decoration: BoxDecoration(
+          //                     borderRadius: BorderRadius.circular(39),
+          //                     color: Colors.yellow,
+          //                   ),
+          //                   padding: EdgeInsets.symmetric(horizontal: 8),
+          //                   child: Center(
+          //                     child: Text(
+          //                       label,
+          //                       style: TextStyle(
+          //                         color: Colors.black,
+          //                         fontFamily: 'Poppins',
+          //                         fontSize: 10,
+          //                         fontWeight: FontWeight.bold,
+          //                       ),
+          //                     ),
+          //                   ),
+          //                   height: 30,
+          //                 ),
+          //               ),
+          //             if (index != _tabController.index)
+          //               Center(
+          //                 child: Text(
+          //                   label,
+          //                   style: TextStyle(
+          //                     color: Color(0xFFA0A3BD),
+          //                     fontFamily: 'Poppins',
+          //                     fontSize: 12,
+          //                   ),
+          //                 ),
+          //               ),
+          //           ],
+          //         ),
+          //       ),
+          //     );
+          //   }).toList(),
+          //   onTap: (index) {
+          //     // Handle tab selection
+          //     setState(() {
+          //       print(index);
+          //       _tabController.index = index;
+          //     });
+          //   },
+          // ),
+          // Expanded(
+          //   child: TabBarView(
+          //     controller: _tabController,
+          //     children: [
+          //       // Replace with your page widgets for each tab
+          Expanded(child: AllFilter()),
+          //       CcTv(),
+          //       SmartHome(),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );

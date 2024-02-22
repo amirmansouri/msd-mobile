@@ -70,48 +70,54 @@ class _HomeState extends State<Home> {
       //     );
       //   },
       // ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: newProductPub(
-              descProduct: 'ColorVu Series HDTVI \n Bullet Camera',
-              textButtonShowProduct: 'View product',
-              imageProduct: 'assets/images/cam.png',
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: newProductPub(
+                  descProduct: 'ColorVu Series HDTVI Bullet Camera',
+                  textButtonShowProduct: 'View product',
+                  imageProduct: 'assets/images/cam.png',
+                  context: context),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                "Browse products",
-                style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 16,
-                  color: Color(0xFF4E4B66),
-                ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: const Text(
+                      "Browse products",
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        color: Color(0xFF4E4B66),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: Text(
+                      "View all",
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 12,
+                        color: Color(0xFF6E7191),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(width: 200),
-              const Text(
-                "View all",
-                style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 12,
-                  color: Color(0xFF6E7191),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Expanded(
-            child: SizedBox(
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
               width: double.infinity,
               height: 150,
               child: ListView.builder(
@@ -136,114 +142,119 @@ class _HomeState extends State<Home> {
                 },
               ),
             ),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                "Browse by category",
-                style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 16,
-                  color: Color(0xFF4E4B66),
-                ),
-              ),
-              const SizedBox(width: 170),
-              const Text(
-                "View all",
-                style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 12,
-                  color: Color(0xFF6E7191),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    SvgPicture.asset('assets/icon/ctv.svg', width: 50),
-                    const Text(
-                      "CCTV IP",
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: const Text(
+                      "Browse by category",
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 10,
-                        fontFamily: 'Poppins',
-                        color: Color(0xFFA0A3BD),
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        color: Color(0xFF4E4B66),
                       ),
                     ),
-                  ],
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset('assets/icon/ctvAnalogique.svg',
-                        width: 50),
-                    const Text(
-                      "CCTV Analogique",
+                  ),
+                  Flexible(
+                    child: const Text(
+                      "View all",
                       style: TextStyle(
-                        fontSize: 10,
-                        fontFamily: 'Poppins',
-                        color: Color(0xFFA0A3BD),
+                        fontFamily: "Poppins",
+                        fontSize: 12,
+                        color: Color(0xFF6E7191),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset('assets/icon/video.svg', width: 50),
-                    const Text(
-                      "Video analysis",
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontFamily: 'Poppins',
-                        color: Color(0xFFA0A3BD),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      SvgPicture.asset('assets/icon/ctv.svg', width: 50),
+                      const Text(
+                        "CCTV IP",
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontFamily: 'Poppins',
+                          color: Color(0xFFA0A3BD),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    SvgPicture.asset('assets/icon/smartHome.svg', width: 50),
-                    const Text(
-                      "Smart Home",
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontFamily: 'Poppins',
-                        color: Color(0xFFA0A3BD),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset('assets/icon/ctvAnalogique.svg',
+                          width: 50),
+                      const Text(
+                        "CCTV Analogique",
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontFamily: 'Poppins',
+                          color: Color(0xFFA0A3BD),
+                        ),
                       ),
-                    ),
-                  ],
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset('assets/icon/video.svg', width: 50),
+                      const Text(
+                        "Video analysis",
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontFamily: 'Poppins',
+                          color: Color(0xFFA0A3BD),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      SvgPicture.asset('assets/icon/smartHome.svg', width: 50),
+                      const Text(
+                        "Smart Home",
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontFamily: 'Poppins',
+                          color: Color(0xFFA0A3BD),
+                        ),
+                      ),
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
