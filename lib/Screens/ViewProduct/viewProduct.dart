@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
- import 'package:msd/Components/PrimaryButton.dart';
-
+import 'package:msd/Components/PrimaryButton.dart';
 
 import '../NavBar/navBarClass.dart';
 import 'cartScreen.dart';
@@ -9,21 +8,18 @@ import 'cartScreen.dart';
 class ViewProduct extends StatefulWidget {
   const ViewProduct({super.key});
 
-
-
   @override
   State<ViewProduct> createState() => _ViewProductState();
 }
 
-class _ViewProductState extends State<ViewProduct>{
-
+class _ViewProductState extends State<ViewProduct> {
   int counter = 0;
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void incrementCounter() {
     setState(() {
-       counter++;
+      counter++;
     });
   }
 
@@ -35,10 +31,8 @@ class _ViewProductState extends State<ViewProduct>{
     });
   }
 
-  void listProductInCart(BuildContext context) async{
-
+  void listProductInCart(BuildContext context) async {
     showModalBottomSheet(
-
       context: context,
       builder: (BuildContext context) {
         return Container(
@@ -308,20 +302,16 @@ class _ViewProductState extends State<ViewProduct>{
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 10, bottom: 20),
-            child: SizedBox(
-              width: double.infinity,
-              height: 189.39,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: SvgPicture.asset('assets/icon/chevron-left.svg',
-                        width: 24, height: 24),
-                  ),
-                  Container(
+          SizedBox(
+            width: double.infinity,
+            height: 189.39,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SvgPicture.asset('assets/icon/chevron-left.svg',
+                    width: 24, height: 24),
+                Flexible(
+                  child: Container(
                     width: 200,
                     height: 200.39,
                     decoration: BoxDecoration(
@@ -340,28 +330,27 @@ class _ViewProductState extends State<ViewProduct>{
                     ),
                     child: Image.asset("assets/images/cam.png"),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(50.0),
-                    child: SvgPicture.asset('assets/icon/chevron-right.svg',
-                        width: 24, height: 24),
-                  ),
-                ],
-              ),
+                ),
+                SvgPicture.asset('assets/icon/chevron-right.svg',
+                    width: 24, height: 24),
+              ],
             ),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 30, right: 10),
-                        child: Text(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
                           'DS-2CE10KF3T',
                           style: TextStyle(
                               color: Color(0xFFEFF0F6),
@@ -369,74 +358,66 @@ class _ViewProductState extends State<ViewProduct>{
                               fontWeight: FontWeight.w500,
                               fontSize: 20),
                         ),
-                      ),
-                      Container(
-                        width: 61,
-                        height: 20,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(39),
-                            color: Color(0xFF00BA88)),
-                        child: Center(
-                            child: Text(
-                          'in stock',
-                          style: TextStyle(
-                              color: Color(0xFFF5F6FF),
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              fontSize: 10),
-                        )),
-                      )
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30.0, top: 5,bottom: 15),
-                    child: Text(
+                        Container(
+                          width: 61,
+                          height: 20,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(39),
+                              color: Color(0xFF00BA88)),
+                          child: Center(
+                              child: Text(
+                            'in stock',
+                            style: TextStyle(
+                                color: Color(0xFFF5F6FF),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 10),
+                          )),
+                        )
+                      ],
+                    ),
+                    Text(
                       'Cámara Bullet HDTVI\nGama Value',
                       style: TextStyle(
                           color: Color(0xFFA0A3BD),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                           fontSize: 10),
-                    ),
-                  )
-                ],
-              ),
-              Spacer(),
-              // Padding(
-              //   padding: const EdgeInsets.all(15.0),
-              //   child: Container(
-              //     width: 90,
-              //     height: 50,
-              //     decoration: BoxDecoration(
-              //       color: Color(0xFFFBE30),
-              //       borderRadius: BorderRadius.circular(10),
-              //     ),
-              //     child: Column(
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         Text(
-              //           'Starting from',
-              //           style: TextStyle(
-              //               color: Color(0xFFA0A3BD),
-              //               fontFamily: 'Poppins',
-              //               fontWeight: FontWeight.w400,
-              //               fontSize: 10),
-              //         ),
-              //         Text(
-              //           '987 DT',
-              //           style: TextStyle(
-              //               color: Color(0xFFFBE216),
-              //               fontFamily: 'Poppins',
-              //               fontWeight: FontWeight.w700,
-              //               fontSize: 20),
-              //         )
-              //       ],
-              //     ),
-              //   ),
-              // ),
-
-            ],
+                    )
+                  ],
+                ),
+                Container(
+                  width: 90,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFBE30),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Starting from',
+                        style: TextStyle(
+                            color: Color(0xFFA0A3BD),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 10),
+                      ),
+                      Text(
+                        '987 DT',
+                        style: TextStyle(
+                            color: Color(0xFFFBE216),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w700,
+                            fontSize: 20),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           Expanded(
             child: Container(
@@ -629,7 +610,7 @@ class _ViewProductState extends State<ViewProduct>{
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
-                                           color: Color(0xFF6E7191))),
+                                          color: Color(0xFF6E7191))),
                                   Text('PDF File',
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
@@ -656,7 +637,8 @@ class _ViewProductState extends State<ViewProduct>{
                         SizedBox(width: 30),
                         primaryButton(
                             onPressed: () {
-                              listProductInCart2(context);                            },
+                              listProductInCart2(context);
+                            },
                             text: 'Add to cart',
                             width: 260,
                             height: 64),
